@@ -1,0 +1,8 @@
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/obj/Debug/EksamensOpgave.csproj.CoreCompileInputs.cache
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/obj/Debug/EksamensOpgave.csproj.AssemblyReference.cache
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/bin/Debug/EksamensOpgave.exe
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/bin/Debug/EksamensOpgave.pdb
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/bin/Debug/System.Text.RegularExpressions.dll
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/obj/Debug/EksamensOpgave.csproj.CopyComplete
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/obj/Debug/EksamensOpgave.exe
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/obj/Debug/EksamensOpgave.pdb

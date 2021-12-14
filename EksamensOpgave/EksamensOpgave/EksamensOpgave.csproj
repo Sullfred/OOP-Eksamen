@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">anycpu</Platform>
+    <ProjectGuid>{F690C435-C361-49CE-AA07-E581504D4A68}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>EksamensOpgave</RootNamespace>
+    <AssemblyName>EksamensOpgave</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\SeasonalProduct.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Exceptions\InvalidUsername.cs" />
+    <Compile Include="Exceptions\InvalidEmail.cs" />
+    <Compile Include="CsvFileReader\UsersCsv.cs" />
+    <Compile Include="CsvFileReader\ProductsCsv.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Interface\IStregsystem.cs" />
+    <Compile Include="Models\BuyTransaction.cs" />
+    <Compile Include="Models\InsertCashTransaction.cs" />
+    <Compile Include="Models\Stregsystem.cs" />
+    <Compile Include="Exceptions\InsufficientCreditsException.cs" />
+    <Compile Include="Exceptions\InactiveProductException.cs" />
+    <Compile Include="UI\StregsystemCLI.cs" />
+    <Compile Include="Exceptions\ProductNotFoundException.cs" />
+    <Compile Include="Exceptions\UsernameNotFoundException.cs" />
+    <Compile Include="UI\StregsystemController.cs" />
+    <Compile Include="Models\StregsystemEvent.cs" />
+    <Compile Include="Interface\IStregsystemUI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="UI\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="CsvFileReader\" />
+    <Folder Include="Interface\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="CsvFileReader\products.csv" />
+    <None Include="CsvFileReader\users.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
