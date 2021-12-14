@@ -5,22 +5,26 @@ using System.IO;
 using EksamensOpgave.Exceptions;
 using EksamensOpgave.Interface;
 using EksamensOpgave.CsvFileReader;
+using EksamensOpgave.Data;
 
 namespace EksamensOpgave.Models
 {
     public class Stregsystem : IStregsystem
     {
-        public List<Transaction> Transactions { get; }
-        public List<Product> Products { get; }
-        public List<User> Users { get; }
+        private List<Transaction> Transactions;
+        private List<Product> Products;
+        public List<User> Users;
 
-        public UsersCsv UsersCsv = new UsersCsv();
-        public ProductsCsv ProductsCsv = new ProductsCsv();
+        private UsersCsv UsersCsv = new UsersCsv();
+        private ProductsCsv ProductsCsv = new ProductsCsv();
+        private TransactionsPath TransactionsPath = new TransactionsPath();
 
         public Stregsystem()
         {
-            Users = UsersCsv.GetUsers(UsersCsv.FilePath);
-            Products = ProductsCsv.GetProducts(ProductsCsv.FilePath);
+            Users = UsersCsv.GetUsersFromFile(UsersCsv.FilePath);
+            Products = ProductsCsv.GetProductsFromFile(ProductsCsv.FilePath);
+
+            Transactions = new List<Transaction>();
 
         }
 
@@ -35,6 +39,10 @@ namespace EksamensOpgave.Models
 
             if (transaction.User.Balance < 50)
                 UserBalanceWarning(transaction.User);
+
+            using StreamWriter file = File.AppendText(TransactionsPath.FilePath);
+            file.WriteLine(transaction);
+
         }
 
         //.exists and .find checks and finds by ID ind list (found on docs.microsoft)

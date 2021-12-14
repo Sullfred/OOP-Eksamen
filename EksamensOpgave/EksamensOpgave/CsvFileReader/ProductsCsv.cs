@@ -12,7 +12,7 @@ namespace EksamensOpgave.CsvFileReader
     {
         public string FilePath = Path.Combine(Directory.GetCurrentDirectory(), "products.csv");
 
-        public List<Product> GetProducts(string file)
+        public List<Product> GetProductsFromFile(string file)
         {
             List<Product> products = new List<Product>();
             foreach(string line in File.ReadLines(file).Skip(1))

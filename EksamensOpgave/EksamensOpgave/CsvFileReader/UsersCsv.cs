@@ -12,7 +12,7 @@ namespace EksamensOpgave.CsvFileReader
         public string FilePath = Path.Combine(Directory.GetCurrentDirectory(), "users.csv");
 
 
-        public List<User> GetUsers(string file)
+        public List<User> GetUsersFromFile(string file)
         {
             List<User> users = new List<User>();
             foreach(string line in File.ReadLines(file).Skip(1))

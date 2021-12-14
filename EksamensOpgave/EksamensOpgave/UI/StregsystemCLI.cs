@@ -7,7 +7,7 @@ namespace EksamensOpgave.UI
 {
     public class StregsystemCLI : IStregsystemUI
     {
-        private List<string> Response = new List<string>();
+        private string Response;
 
         private bool Running;
 
@@ -26,16 +26,20 @@ namespace EksamensOpgave.UI
 
             Running = true;
             string command;
+            if(Running)
+                ConsoleUI();
 
             while (Running)
             {
-                ConsoleUI();
                 command = Console.ReadLine();
-                //CommandEntered += ParseCommand(CommandEntered);
 
                 CommandEntered(command);
 
-                
+                if (Response != "") 
+                { 
+                    Console.WriteLine(Response);
+                    Response = "";    
+                }
 
             }
 
@@ -47,65 +51,75 @@ namespace EksamensOpgave.UI
             {
                 Console.WriteLine(product);
             }
+            Console.WriteLine("\n");
 
-            Console.WriteLine(Response);
-
+           
             
+        }
+
+        public void DisplayUsers()
+        {
+            DisplayGeneralMessage("Stregsystem users:");
+            foreach(User user in stregsystem.GetUsers(user => true))
+            {
+                DisplayGeneralMessage($"{user.ID}: {user} - Balance: {user.Balance}");
+            }
         }
 
         public void DisplayUserNotFound(string username)
         {
-            Response.Add($"{username} not found! Check if written correctly.\n");
+            DisplayGeneralMessage($"{username} not found! Check if written correctly.\n");
         }
 
         public void DisplayProductNotFound(string product)
         {
-            Response.Add($"{product} not found!\n");
+            DisplayGeneralMessage($"{product} not found!\n");
         }
 
         public void DisplayUserInfo(User user)
         {
-            Response.Add($"Username: {user.UserName}, Balance: {user.Balance}\n");
+            Console.WriteLine("test");
+            DisplayGeneralMessage($"Username: {user.UserName}\n");
+            DisplayGeneralMessage($"Name: {user.FirstName} {user.LastName}\n");
+            DisplayGeneralMessage($"Email: {user.Email}\n");
+            DisplayGeneralMessage($"Balance: {user.Balance}\n");
             if (user.Balance < 50)
-                Response.Add($"Warning: {user.UserName} has less than 50 kr.\n");
+                DisplayGeneralMessage($"Warning: {user.UserName} has less than 50 kr.\n");
 
         }
 
         public void DisplayTooManyArgumentsError(string command)
         {
-            Response.Add($"Command: {command} was given too many arguments!\n");
+            DisplayGeneralMessage($"Command: {command} was given too many arguments!\n");
         }
 
         public void DisplayAdminCommandNotFoundMessage(string adminCommand)
         {
-            Response.Add($"Admin Command: {adminCommand} was not found!\n");
+            DisplayGeneralMessage($"Admin Command: {adminCommand} was not found!\n");
         }
 
         public void DisplayUserBuysProduct(BuyTransaction transaction)
         {
-            Response.Add(transaction.ToString()+"\n");
+            DisplayGeneralMessage(transaction.ToString()+"\n");
         }
 
 
         public void DisplayUserBuysProduct(int count, BuyTransaction transaction)
         {
-            Response.Add($"{transaction} x {count}");
+            DisplayGeneralMessage($"{transaction} x {count}");
         }
 
         public void DisplayInsufficientCash(User user, Product product)
         {
-            Response.Add($"{user.UserName} tried to buy {product.Name} but has insuficcient credits.\n");
+            DisplayGeneralMessage($"{user.UserName} tried to buy {product.Name} but has insuficcient credits.\n");
         }
 
         public void DisplayGeneralError(string errorString)
         {
-            Response.Add($"Error: {errorString}\n");
+            DisplayGeneralMessage($"Error: {errorString}\n");
         }
 
-        public void DisplayGeneralMessage(string msg)
-        {
-            Response.Add(msg);
-        }
+        public void DisplayGeneralMessage(string msg) => msg += msg == "" ? msg : $"\n{msg}";
 
         public void Close()
         {

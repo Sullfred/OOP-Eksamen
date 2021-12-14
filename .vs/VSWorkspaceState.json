@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\EksamensOpgave",
+    "\\EksamensOpgave\\EksamensOpgave",
+    "\\EksamensOpgave\\EksamensOpgave\\CsvFileReader",
+    "\\EksamensOpgave\\EksamensOpgave\\Data",
+    "\\EksamensOpgave\\EksamensOpgave\\Interface",
+    "\\EksamensOpgave\\EksamensOpgave\\Models",
+    "\\EksamensOpgave\\EksamensOpgave\\UI"
+  ],
+  "SelectedNode": "\\EksamensOpgave\\EksamensOpgave\\Data\\TransactionsPath.cs",
+  "PreviewInSolutionExplorer": false
+}

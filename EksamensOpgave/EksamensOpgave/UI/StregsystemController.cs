@@ -30,15 +30,28 @@ namespace EksamensOpgave.UI
             AdminCmds.Add(":crediton", CreditOn);
             AdminCmds.Add(":creditoff", CreditOff);
             AdminCmds.Add(":addcredits", AddCredits);
+            AdminCmds.Add(":users", args => StregsystemUI.DisplayUsers());
+
+            StregsystemUI.CommandEntered += (command) => ParseCommand(command);
 
         }
 
 
         public void ParseCommand(string command)
         {
-            string[] words = command.Split(' ');
+            string[] words = command.ToLower().Split(' ');
             string cmd = words.First();
             string[] args = words.Skip(1).ToArray();
+
+            if (cmd.Contains(':'))
+            {
+                //check if command is a registered admin command
+                if (AdminCmds.ContainsKey(cmd))
+                    AdminCmds[cmd](args);
+                else
+                    StregsystemUI.DisplayAdminCommandNotFoundMessage(cmd);
+                return;
+            }
 
             switch (args.Length)
             {
@@ -61,6 +74,7 @@ namespace EksamensOpgave.UI
 
         private void GetUserInfo(string username)
         {
+            Console.WriteLine("test");
             try
             {
                 User user = Stregsystem.GetUserByUsername(username);

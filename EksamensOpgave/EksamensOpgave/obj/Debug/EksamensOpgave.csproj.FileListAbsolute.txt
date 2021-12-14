@@ -6,3 +6,10 @@
 /Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/obj/Debug/EksamensOpgave.csproj.CopyComplete
 /Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/obj/Debug/EksamensOpgave.exe
 /Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/obj/Debug/EksamensOpgave.pdb
+C:\Users\danie\Desktop\OOP-Eksamen\EksamensOpgave\EksamensOpgave\bin\Debug\EksamensOpgave.exe
+C:\Users\danie\Desktop\OOP-Eksamen\EksamensOpgave\EksamensOpgave\bin\Debug\EksamensOpgave.pdb
+C:\Users\danie\Desktop\OOP-Eksamen\EksamensOpgave\EksamensOpgave\obj\Debug\EksamensOpgave.csproj.AssemblyReference.cache
+C:\Users\danie\Desktop\OOP-Eksamen\EksamensOpgave\EksamensOpgave\obj\Debug\EksamensOpgave.csproj.SuggestedBindingRedirects.cache
+C:\Users\danie\Desktop\OOP-Eksamen\EksamensOpgave\EksamensOpgave\obj\Debug\EksamensOpgave.csproj.CoreCompileInputs.cache
+C:\Users\danie\Desktop\OOP-Eksamen\EksamensOpgave\EksamensOpgave\obj\Debug\EksamensOpgave.exe
+C:\Users\danie\Desktop\OOP-Eksamen\EksamensOpgave\EksamensOpgave\obj\Debug\EksamensOpgave.pdb

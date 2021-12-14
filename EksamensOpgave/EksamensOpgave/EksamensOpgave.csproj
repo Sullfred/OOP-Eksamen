@@ -8,6 +8,7 @@
     <RootNamespace>EksamensOpgave</RootNamespace>
     <AssemblyName>EksamensOpgave</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+	<LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,6 +54,7 @@
     <Folder Include="Exceptions\" />
     <Folder Include="CsvFileReader\" />
     <Folder Include="Interface\" />
+	  <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
