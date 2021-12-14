@@ -13,7 +13,6 @@ namespace EksamensOpgave
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("test");
 
             IStregsystem stregsystem = new Stregsystem();
             IStregsystemUI stregsystemUI = new StregsystemCLI(stregsystem);

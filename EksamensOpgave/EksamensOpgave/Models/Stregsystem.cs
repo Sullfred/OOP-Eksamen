@@ -32,6 +32,9 @@ namespace EksamensOpgave.Models
         {
             transaction.Execute();
             Transactions.Add(transaction);
+
+            if (transaction.User.Balance < 50)
+                UserBalanceWarning(transaction.User);
         }
 
         //.exists and .find checks and finds by ID ind list (found on docs.microsoft)

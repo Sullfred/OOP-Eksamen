@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using EksamensOpgave.Models;
 using EksamensOpgave.Exceptions;
 
@@ -18,7 +19,8 @@ namespace EksamensOpgave.CsvFileReader
             {
                 string[] fileInfo = line.Split(';');
 
-                string Name = fileInfo[1];
+                //Regex to remove html tags
+                string Name = Regex.Replace(fileInfo[1], @"<[^>]+>", m => "").Replace("\"", "");
                 int Price = Int32.Parse(fileInfo[2]);
                 bool Active = fileInfo[3] == "1";
 

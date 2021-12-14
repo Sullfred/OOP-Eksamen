@@ -9,7 +9,7 @@ namespace EksamensOpgave.Models
     public class User : IComparable<User>
     {
         public int ID { get; }
-        private int _ID = 0;
+        private static int _ID = 0;
 
         public string FirstName { get; }
 
@@ -59,6 +59,9 @@ namespace EksamensOpgave.Models
             string str = $"{FirstName} {LastName} ({Email})";
             return str;
         }
+
+        public override int GetHashCode() => ID.GetHashCode();
+
 
     }
 }

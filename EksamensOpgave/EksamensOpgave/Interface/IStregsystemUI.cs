@@ -17,8 +17,10 @@ namespace EksamensOpgave.UI
         void Close();
         void DisplayInsufficientCash(User user, Product product);
         void DisplayGeneralError(string errorString);
+        void DisplayGeneralMessage(string msg);
         void Start();
-        event StregsystemEvent CommandEntered;
+        //event StregsystemEvent CommandEntered;
+        event Action<string> CommandEntered;
     }
 
 }

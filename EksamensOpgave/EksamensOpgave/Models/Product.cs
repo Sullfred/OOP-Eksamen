@@ -2,10 +2,10 @@
 
 namespace EksamensOpgave.Models
 {
-    public class Product
+    public class Product : IComparable<Product>
     {
         public int ID { get; }
-        private int _ID = 1;
+        private static int _ID = 1;
 
         public string Name { get; }
 
@@ -27,8 +27,10 @@ namespace EksamensOpgave.Models
 
         public override string ToString()
         {
-            string str = $"{ID} {Name} {(double) Price / 100}";
+            string str = $"{ID} {Name} - {(double) Price / 100} kr";
             return str;
         }
+
+        public int CompareTo(Product obj) => this.ID - obj.ID;
     }
 }

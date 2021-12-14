@@ -27,12 +27,15 @@ namespace EksamensOpgave.UI
             Running = true;
             string command;
 
-            while (Running == true)
+            while (Running)
             {
                 ConsoleUI();
-                //command = Console.ReadLine();
+                command = Console.ReadLine();
                 //CommandEntered += ParseCommand(CommandEntered);
-                //CommandEntered(command);
+
+                CommandEntered(command);
+
+                
 
             }
 
@@ -44,6 +47,10 @@ namespace EksamensOpgave.UI
             {
                 Console.WriteLine(product);
             }
+
+            Console.WriteLine(Response);
+
+            
         }
 
         public void DisplayUserNotFound(string username)
@@ -95,12 +102,19 @@ namespace EksamensOpgave.UI
             Response.Add($"Error: {errorString}\n");
         }
 
-        public void Close()
+        public void DisplayGeneralMessage(string msg)
         {
-          
+            Response.Add(msg);
         }
 
-        public event StregsystemEvent CommandEntered;
+        public void Close()
+        {
+            Running = false;
+            Console.Clear();
+        }
+
+        //public event StregsystemEvent CommandEntered;
+        public event Action<string> CommandEntered;
 
     }
 }

@@ -4,7 +4,7 @@ namespace EksamensOpgave.Models
     public abstract class Transaction
     {
         public int ID { get; }
-        private int _ID = 1;
+        private static int _ID = 1;
 
         public User User { get; }
 

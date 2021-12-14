@@ -1,0 +1,5 @@
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/bin/Release/EksamensOpgave.exe
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/bin/Release/System.Text.RegularExpressions.dll
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/obj/Release/EksamensOpgave.csproj.CoreCompileInputs.cache
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/obj/Release/EksamensOpgave.csproj.CopyComplete
+/Users/daniel/Documents/UNI/3 semester/OOP/EksamensOpgave/EksamensOpgave/obj/Release/EksamensOpgave.exe
