@@ -3,6 +3,7 @@ using EksamensOpgave.Exceptions;
 
 namespace EksamensOpgave.Models
 {
+    //Inherets from abstract class Transaction
     public class BuyTransaction : Transaction
     {
         Product Product { get; }
@@ -12,6 +13,7 @@ namespace EksamensOpgave.Models
             Product = product;
         }
 
+        //Buys product if user has enough credits and product is active. If not throws errors
         public override void Execute()
         {
             if (User.Balance < Product.Price)
@@ -23,6 +25,7 @@ namespace EksamensOpgave.Models
             
         }
 
+        // **ToString**
         public override string ToString()
         {
             string str = $"{ID}: User {User.UserName} bought {Product.Name} at {Date} for {Product.Price}";

@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{F690C435-C361-49CE-AA07-E581504D4A68}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UI/StregsystemController.cs">
+    <Files>
+      <File FileName="Models/User.cs" Line="1" Column="1" />
+      <File FileName="UI/StregsystemCLI.cs" Line="51" Column="67" />
+      <File FileName="UI/StregsystemController.cs" Line="152" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="EksamensOpgave" expanded="True">
+            <Node name="EksamensOpgave" expanded="True">
+              <Node name="CsvFileReader" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Exceptions" expanded="True" />
+              <Node name="Interface" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="UI" expanded="True">
+                <Node name="StregsystemController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.EksamensOpgave PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

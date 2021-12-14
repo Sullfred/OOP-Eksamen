@@ -10,11 +10,14 @@ namespace EksamensOpgave.CsvFileReader
 {
     public class ProductsCsv
     {
+        //Gets path to file
         public string FilePath = Path.Combine(Directory.GetCurrentDirectory(), "products.csv");
 
         public List<Product> GetProductsFromFile(string file)
         {
             List<Product> products = new List<Product>();
+
+            //Reads all lines in file (skips first line) and creates a product object 
             foreach(string line in File.ReadLines(file).Skip(1))
             {
                 string[] fileInfo = line.Split(';');

@@ -47,6 +47,7 @@
     <Compile Include="UI\StregsystemController.cs" />
     <Compile Include="Models\StregsystemEvent.cs" />
     <Compile Include="Interface\IStregsystemUI.cs" />
+    <Compile Include="Data\TransactionsPath.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -60,6 +61,7 @@
     <None Include="packages.config" />
     <None Include="CsvFileReader\products.csv" />
     <None Include="CsvFileReader\users.csv" />
+    <None Include="Data\Transactions.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Text.RegularExpressions">

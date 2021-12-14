@@ -13,8 +13,10 @@ namespace EksamensOpgave.UI
         public IStregsystemUI StregsystemUI { get; }
         public IStregsystem Stregsystem { get; }
 
+        //dictionay with all admin commands
         private Dictionary<string, Action<string[]>> AdminCmds;
 
+        // **constructor**
         public StregsystemController(IStregsystem stregsystem, IStregsystemUI stregsystemUI)
         {
             Stregsystem = stregsystem;
@@ -36,7 +38,7 @@ namespace EksamensOpgave.UI
 
         }
 
-
+        //Parses the command from the Console.Writeline in StregsystemCLI.cs
         public void ParseCommand(string command)
         {
             string[] words = command.ToLower().Split(' ');
@@ -148,6 +150,7 @@ namespace EksamensOpgave.UI
             }
         }
 
+        // **Admin Commands Functionality**
         private void Quit(string[] args) => GeneralQuit(":quit", args);
         private void QuitQ(string[] args) => GeneralQuit(":quit", args);
         private void GeneralQuit(string cmd, string[] args)

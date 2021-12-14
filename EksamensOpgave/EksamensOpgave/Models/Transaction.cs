@@ -12,6 +12,7 @@ namespace EksamensOpgave.Models
 
         public int Amount { get; }
 
+        // **constructor**
         public Transaction(User user, int amount)
         {
             ID = _ID++;
@@ -24,6 +25,7 @@ namespace EksamensOpgave.Models
 
         }
 
+        // **ToString**
         public override string ToString()
         {
             string str = $"{ID}: made a transaction at {Date}. {User} made the transaction with the amount: {Amount}.";

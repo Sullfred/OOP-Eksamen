@@ -7,18 +7,20 @@ namespace EksamensOpgave.UI
 {
     public class StregsystemCLI : IStregsystemUI
     {
+        //variabels used in functionality
         private string Response;
-
         private bool Running;
 
         private IStregsystem stregsystem;
 
+        // **constructor**
         public StregsystemCLI(IStregsystem stregsystem)
         {
             this.stregsystem = stregsystem;
             Running = false;
         }
 
+        // **functionality**
         public void Start()
         {
             if (Running)
@@ -26,6 +28,7 @@ namespace EksamensOpgave.UI
 
             Running = true;
             string command;
+
             if(Running)
                 ConsoleUI();
 
@@ -45,6 +48,7 @@ namespace EksamensOpgave.UI
 
         }
 
+        //Creates the UI the user sees in the console/cmd/terminal
         private void ConsoleUI()
         {
             foreach( Product product in stregsystem.ActiveProducts)

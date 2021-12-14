@@ -11,14 +11,18 @@ namespace EksamensOpgave.Models
 {
     public class Stregsystem : IStregsystem
     {
+        // **lists**
         private List<Transaction> Transactions;
         private List<Product> Products;
         public List<User> Users;
 
+        // **FileReading classes**
         private UsersCsv UsersCsv = new UsersCsv();
         private ProductsCsv ProductsCsv = new ProductsCsv();
         private TransactionsPath TransactionsPath = new TransactionsPath();
 
+
+        // **constructor**
         public Stregsystem()
         {
             Users = UsersCsv.GetUsersFromFile(UsersCsv.FilePath);
@@ -28,10 +32,12 @@ namespace EksamensOpgave.Models
 
         }
 
+        // **Functionality**
         public BuyTransaction BuyProduct(User user, Product product) => new BuyTransaction(user, product);
 
         public InsertCashTransaction AddCreditsToAccount(User user, int amount) => new InsertCashTransaction(user, amount);
 
+        //Executes a transtaction and adds it to the Transactions.txt
         public void ExecuteTransaction(Transaction transaction)
         {
             transaction.Execute();
@@ -45,7 +51,7 @@ namespace EksamensOpgave.Models
 
         }
 
-        //.exists and .find checks and finds by ID ind list (found on docs.microsoft)
+        //.exists and .find checks and finds by ID in lists
         public Product GetProductByID(int id)
         {
             if (Products.Exists(x => x.ID != id))

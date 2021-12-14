@@ -16,6 +16,7 @@ namespace EksamensOpgave.Models
         public bool CanBeBoughtOnCredit { get; set; }
 
 
+        // **Constructor**
         public Product(string name, int price, bool active)
         {
             ID = _ID++;
@@ -25,11 +26,13 @@ namespace EksamensOpgave.Models
             CanBeBoughtOnCredit = false;
         }
 
+        //**ToString**
         public override string ToString()
         {
             string str = $"{ID} {Name} - {(double) Price / 100} kr";
             return str;
         }
+
 
         public int CompareTo(Product obj) => this.ID - obj.ID;
     }

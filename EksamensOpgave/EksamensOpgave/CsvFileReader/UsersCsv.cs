@@ -9,13 +9,15 @@ namespace EksamensOpgave.CsvFileReader
 {
     public class UsersCsv
     {
+        //get path to file
         public string FilePath = Path.Combine(Directory.GetCurrentDirectory(), "users.csv");
-
 
         public List<User> GetUsersFromFile(string file)
         {
             List<User> users = new List<User>();
-            foreach(string line in File.ReadLines(file).Skip(1))
+
+            //Reads all lines in file (skips first line) and creates a User object 
+            foreach (string line in File.ReadLines(file).Skip(1))
             {
                 string[] fileInfo = line.Split(',');
 
