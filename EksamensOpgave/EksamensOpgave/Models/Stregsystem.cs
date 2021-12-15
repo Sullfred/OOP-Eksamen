@@ -49,8 +49,12 @@ namespace EksamensOpgave.Models
             if (transaction.User.Balance < 50)
                 UserBalanceWarning(transaction.User);
 
-            using StreamWriter file = File.AppendText(TransactionsPath.FilePath);
-            file.WriteLine(transaction);
+
+            string path = TransactionsPath.FilePath;
+            using (StreamWriter sw = File.AppendText(path))
+            {
+                sw.WriteLine(transaction.ToString());
+            }
 
         }
 

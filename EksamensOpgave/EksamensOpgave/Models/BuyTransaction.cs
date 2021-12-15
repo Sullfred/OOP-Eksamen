@@ -28,7 +28,7 @@ namespace EksamensOpgave.Models
         // **ToString**
         public override string ToString()
         {
-            string str = $"{ID}: User {User.UserName} bought {Product.Name} at {Date} for {Product.Price}";
+            string str = $"{ID}: User {User.UserName} bought {Product.Name} at {Date} for {Product.Price/100} kr";
             return str;
         }
     }

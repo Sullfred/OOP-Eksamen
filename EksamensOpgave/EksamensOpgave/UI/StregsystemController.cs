@@ -185,6 +185,7 @@ namespace EksamensOpgave.UI
                     product.Active = val;
                     StregsystemUI.DisplayGeneralMessage($"Active value of product {product.Name} is now set to: {val}");
                 }
+
             }
             catch (InactiveProductException e)
             {

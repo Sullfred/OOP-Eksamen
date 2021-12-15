@@ -28,13 +28,12 @@ namespace EksamensOpgave.UI
             Running = true;
             string command;
 
+            ConsoleUI();
+
             while (Running)
             {
-                ConsoleUI();
 
                 command = Console.ReadLine();
-                Console.WriteLine("\n");
-
                 CommandEntered(command);
 
             }
@@ -44,10 +43,8 @@ namespace EksamensOpgave.UI
         //Creates the UI the user sees in the console/cmd/terminal
         private void ConsoleUI()
         {
-            //Print empty lines and clear to produce space between individual updates
-            /*for (int i = 0; i < 50; i++) Console.WriteLine("");
-            Console.Clear();*/
-
+            for (int i = 0; i < 50; i++) Console.WriteLine("");
+            Console.Clear();
 
             Console.WriteLine($"| {"Id",-3} | {"Name",-40} | {"Price",-7} |");
             Console.WriteLine(("").PadRight(60, '-'));
@@ -67,13 +64,13 @@ namespace EksamensOpgave.UI
             DisplayGeneralMessage("Stregsystem users:");
             foreach(User user in stregsystem.GetUsers(user => true))
             {
-                DisplayGeneralMessage($"{user.ID}: {user} - Balance: {user.Balance}");
+                DisplayGeneralMessage($"{user.ID}: {user} ({user.UserName}) - Balance: {user.Balance/100} kr");
             }
         }
 
         public void DisplayUserNotFound(string username)
         {
-            DisplayGeneralMessage($"{username} not found! Check if written correctly.\n");
+            DisplayGeneralMessage($"User: {username} not found! Check if written correctly.\n");
         }
 
         public void DisplayProductNotFound(string product)
@@ -89,6 +86,12 @@ namespace EksamensOpgave.UI
             DisplayGeneralMessage($"Balance: {user.Balance/100} kr\n");
             if (user.Balance < 50)
                 DisplayGeneralMessage($"Warning: {user.UserName} has less than 50 kr.\n");
+            IEnumerable<Transaction> transactions = stregsystem.GetTransactions(user, 10);
+            DisplayGeneralMessage("Users latest transactions:");
+            foreach(Transaction transaction in transactions)
+            {
+                DisplayGeneralMessage(transaction.ToString());
+            }
 
         }
 
