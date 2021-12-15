@@ -8,7 +8,6 @@ namespace EksamensOpgave.UI
     public class StregsystemCLI : IStregsystemUI
     {
         //variabels used in functionality
-        private string Response;
         private bool Running;
 
         private IStregsystem stregsystem;
@@ -29,20 +28,14 @@ namespace EksamensOpgave.UI
             Running = true;
             string command;
 
-            if(Running)
-                ConsoleUI();
-
             while (Running)
             {
+                ConsoleUI();
+
                 command = Console.ReadLine();
+                Console.WriteLine("\n");
 
                 CommandEntered(command);
-
-                if (Response != "") 
-                { 
-                    Console.WriteLine(Response);
-                    Response = "";    
-                }
 
             }
 
@@ -51,6 +44,11 @@ namespace EksamensOpgave.UI
         //Creates the UI the user sees in the console/cmd/terminal
         private void ConsoleUI()
         {
+            //Print empty lines and clear to produce space between individual updates
+            /*for (int i = 0; i < 50; i++) Console.WriteLine("");
+            Console.Clear();*/
+
+
             Console.WriteLine($"| {"Id",-3} | {"Name",-40} | {"Price",-7} |");
             Console.WriteLine(("").PadRight(60, '-'));
 
@@ -59,6 +57,7 @@ namespace EksamensOpgave.UI
                 Console.WriteLine($"| {product.ID,-3} | {product.Name,-40} | {product.Price/100,-7} |");
             }
             Console.WriteLine("\n");
+
 
 
         }
@@ -84,11 +83,10 @@ namespace EksamensOpgave.UI
 
         public void DisplayUserInfo(User user)
         {
-            Console.WriteLine("test");
             DisplayGeneralMessage($"Username: {user.UserName}\n");
             DisplayGeneralMessage($"Name: {user.FirstName} {user.LastName}\n");
             DisplayGeneralMessage($"Email: {user.Email}\n");
-            DisplayGeneralMessage($"Balance: {user.Balance}\n");
+            DisplayGeneralMessage($"Balance: {user.Balance/100} kr\n");
             if (user.Balance < 50)
                 DisplayGeneralMessage($"Warning: {user.UserName} has less than 50 kr.\n");
 
@@ -125,7 +123,10 @@ namespace EksamensOpgave.UI
             DisplayGeneralMessage($"Error: {errorString}\n");
         }
 
-        public void DisplayGeneralMessage(string msg) => msg += msg == "" ? msg : $"\n{msg}";
+        public void DisplayGeneralMessage(string msg)
+        {
+            Console.WriteLine(msg);
+        }
 
         public void Close()
         {

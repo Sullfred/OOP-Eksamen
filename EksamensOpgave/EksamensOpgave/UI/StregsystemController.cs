@@ -76,7 +76,6 @@ namespace EksamensOpgave.UI
 
         private void GetUserInfo(string username)
         {
-            Console.WriteLine("test");
             try
             {
                 User user = Stregsystem.GetUserByUsername(username);

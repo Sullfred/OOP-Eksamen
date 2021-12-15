@@ -12,9 +12,9 @@ namespace EksamensOpgave.Models
     public class Stregsystem : IStregsystem
     {
         // **lists**
-        private List<Transaction> Transactions;
-        private List<Product> Products;
-        public List<User> Users;
+        private List<Transaction> Transactions { get; }
+        private List<Product> Products { get; }
+        private List<User> Users { get; }
 
         // **FileReading classes**
         private UsersCsv UsersCsv = new UsersCsv();
@@ -57,20 +57,21 @@ namespace EksamensOpgave.Models
         //.exists and .find checks and finds by ID in lists
         public Product GetProductByID(int id)
         {
-            if (Products.Exists(x => x.ID != id))
+            Product product = Products.SingleOrDefault(p => p.ID == id);
+            if(product == null)
                 throw new ProductNotFoundException(id);
-
-            return Products.Find(x => x.ID == id);
+            return product;
         }
 
         public IEnumerable<User> GetUsers(Func<User,bool> predicate) => Users.Where(predicate);
 
         public User GetUserByUsername(string username)
         {
-            if (Users.Exists(x => x.UserName != username))
+            User user = Users.SingleOrDefault(u => u.UserName == username);
+            if (user == null)
                 throw new UsernameNotFoundException(username);
+            return user;
 
-            return Users.Find(x => x.UserName == username);
         }
 
         //.Take to get from list and .Reverse to get the last
