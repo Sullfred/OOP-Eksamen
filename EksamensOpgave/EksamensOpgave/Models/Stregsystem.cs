@@ -26,7 +26,10 @@ namespace EksamensOpgave.Models
         public Stregsystem()
         {
             Users = UsersCsv.GetUsersFromFile(UsersCsv.FilePath);
+            Users.Sort();
+
             Products = ProductsCsv.GetProductsFromFile(ProductsCsv.FilePath);
+            Products.Sort();
 
             Transactions = new List<Transaction>();
 
@@ -60,7 +63,7 @@ namespace EksamensOpgave.Models
             return Products.Find(x => x.ID == id);
         }
 
-        public IEnumerable<User> GetUsers(Func<User, bool> predicate) => Users.Where(predicate);
+        public IEnumerable<User> GetUsers(Func<User,bool> predicate) => Users.Where(predicate);
 
         public User GetUserByUsername(string username)
         {
