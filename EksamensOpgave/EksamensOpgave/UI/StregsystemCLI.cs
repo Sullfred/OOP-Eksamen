@@ -51,14 +51,16 @@ namespace EksamensOpgave.UI
         //Creates the UI the user sees in the console/cmd/terminal
         private void ConsoleUI()
         {
+            Console.WriteLine($"| {"Id",-3} | {"Name",-40} | {"Price",-7} |");
+            Console.WriteLine(("").PadRight(60, '-'));
+
             foreach( Product product in stregsystem.ActiveProducts)
             {
-                Console.WriteLine(product);
+                Console.WriteLine($"| {product.ID,-3} | {product.Name,-40} | {product.Price/100,-7} |");
             }
             Console.WriteLine("\n");
 
-           
-            
+
         }
 
         public void DisplayUsers()
